@@ -1,14 +1,13 @@
 import React from "react";
 import { createChatBotMessage } from "react-chatbot-kit";
 
-import LearningOptions from "./components/LearningOptions/LearningOptions";
+import FrequencyOptions from "./components/LearningOptions/FrequencyOptions";
 import LinkList from "./components/LinkList/LinkList";
 
 const config = {
-  botName: "LearningBot",
+  botName: "HopeChat",
   initialMessages: [
-    createChatBotMessage("Hi, I'm here to help. What do you want to learn?", {
-      widget: "learningOptions",
+    createChatBotMessage("Hi! I'm xxx. Nice to meet you", {
     }),
   ],
   customStyles: {
@@ -21,8 +20,20 @@ const config = {
   },
   widgets: [
     {
-      widgetName: "learningOptions",
-      widgetFunc: (props) => <LearningOptions {...props} />,
+      widgetName:"YesNoOptions",
+      widgetFunc:(props) => <LinkList {...props} />,
+      props: {
+        options: [
+          {text: "Yes, I'm ready",
+            id:1},
+          {text: "No, I'm not ready",
+            id:2},
+        ]
+      }
+    },
+    {
+      widgetName: "frequencyOptions",
+      widgetFunc: (props) => <FrequencyOptions {...props} />,
     },
     {
       widgetName: "javascriptLinks",

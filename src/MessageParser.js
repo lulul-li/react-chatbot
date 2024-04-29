@@ -11,6 +11,10 @@ class MessageParser {
       this.actionProvider.greet();
     }
 
+    if(lowerCaseMessage.includes("Yes, I'm ready")){
+      this.actionProvider.recentlyFeeling();
+    }
+
     if (lowerCaseMessage.includes("javascript")) {
       this.actionProvider.handleJavascriptList();
     }
