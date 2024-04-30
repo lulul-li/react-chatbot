@@ -1,13 +1,14 @@
 import React from "react";
 import { createChatBotMessage } from "react-chatbot-kit";
 
-import FrequencyOptions from "./components/LearningOptions/FrequencyOptions";
+import FrequencyOptions from "./components/Options/FrequencyOptions";
 import LinkList from "./components/LinkList/LinkList";
+import YesNoOptions from "./components/Options/YesNoOptions";
 
 const config = {
   botName: "HopeChat",
   initialMessages: [
-    createChatBotMessage("Hi! I'm xxx. Nice to meet you", {
+    createChatBotMessage("Hi, friend. I'm here to help you understand your recent emotions and feelings. You can stop the conversation at any time, and all discussions are confidential.", {
     }),
   ],
   customStyles: {
@@ -21,15 +22,7 @@ const config = {
   widgets: [
     {
       widgetName:"YesNoOptions",
-      widgetFunc:(props) => <LinkList {...props} />,
-      props: {
-        options: [
-          {text: "Yes, I'm ready",
-            id:1},
-          {text: "No, I'm not ready",
-            id:2},
-        ]
-      }
+      widgetFunc: (props) => <YesNoOptions {...props} />,
     },
     {
       widgetName: "frequencyOptions",
