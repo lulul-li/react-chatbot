@@ -15,16 +15,12 @@ COPY . .
 
 RUN yarn run build
 
-# Use a smaller image as the final runtime image
+# 使用 nginx 镜像来服务 React 静态文件
 FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Copy the built Vue.js application from the build-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-
-# Expose port 80 for the Nginx web server
+# 暴露 80 端口
 EXPOSE 80
 
-ENV PORT 80
-
-# Start Nginx when the container starts
+# 启动 nginx
 CMD ["nginx", "-g", "daemon off;"]
