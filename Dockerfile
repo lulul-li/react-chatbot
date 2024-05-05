@@ -8,12 +8,12 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm install
+RUN yarn install
 
 # Copy the entire project to the container
 COPY . .
 
-RUN npm run build
+RUN yarn run build
 
 # Use a smaller image as the final runtime image
 FROM nginx:alpine
