@@ -1,26 +1,21 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14 as build-stage
+# Use a base image with Node.js 18
+FROM node:18-slim
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the container
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install project dependencies
+# Install dependencies
 RUN yarn install
 
-# Copy the entire project to the container
+# Copy the rest of your app's source code
 COPY . .
 
+# Build your React app
 RUN yarn run build
 
-# 使用 nginx 镜像来服务 React 静态文件
-FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
-
-# 暴露 80 端口
-EXPOSE 80
-
-# 启动 nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Further instructions like exposing ports and the CMD statement
+EXPOSE 3000
+CMD ["npm", "start"]
