@@ -29,7 +29,9 @@ class ActionProvider {
 
     this.updateChatbotState(message);
   };
-  handleResponse=(msg)=>{
+  handleResponse=(resp)=>{
+    const msg = this.createChatBotMessage(resp,
+      {});
     this.updateChatbotState(msg);
   }
 
