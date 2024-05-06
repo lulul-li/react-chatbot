@@ -7,8 +7,10 @@ import config from "./config";
 
 function App() {
   return (
+
     <div className="App">
-      <img src="/FT-Postpartum-Depression.png" />
+      <header className="App-header">
+      <img src="/postpartum.jpg" />
       <div className="Chatbot">
         <Chatbot
           config={config}
@@ -16,7 +18,9 @@ function App() {
           messageParser={MessageParser}
         />
       </div>
+      </header>
     </div>
+
   );
 }
 
