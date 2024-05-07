@@ -56,7 +56,10 @@ class ActionProvider {
     this.updateChatbotState(q1);
 
     fetch("https://ddp-ai-kpglnlidnq-ts.a.run.app/api-predict", {
-      method: "POST",
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ inputData: input })
     }).then(response => response.json())
       .then(data => {
