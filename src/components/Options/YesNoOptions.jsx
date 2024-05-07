@@ -5,7 +5,7 @@ import "./FrequencyOptions.css";
 const YesNoOptions = (props) => {
   const options = [
 
-    { text: "Yes, I am ready!", handler: props.actionProvider.recentlyFeeling, id:1 },
+    { text: "Yes, I am ready!", handler: ()=>{props.actionProvider.start(); }, id:1 },
     { text: "No, not now.", handler: () => {}, id: 2 },
   ];
 
