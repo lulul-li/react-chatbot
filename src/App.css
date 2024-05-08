@@ -18,10 +18,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
 
+}
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* 使得包裹容器宽度为100% */
 }
 
 
@@ -42,4 +46,8 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+.chatbot-icon{
+  height: 80px;
 }

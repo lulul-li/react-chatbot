@@ -11,6 +11,18 @@ const questionList = [
   "9. Are you having problems bonding with your baby?",
   "10. Have you ever attempted suicide?"
 ];
+const answerList = [
+  "Thank you for sharing your age with me. Age can influence how we experience and deal with different challenges.",
+  "Thank you for sharing your feelings. It's good to talk about these things.",
+  "It's quite common to experience friction with family members. You're not alone in this.",
+  "I see. Good sleep is very important for health, isn't it?",
+  "Hmm, making decisions can sometimes be challenging.",
+  "Changes in eating habits can often reflect increased stress. This is something many people experience.",
+  "This is a common feeling",
+  "Dealing with feelings of guilt sometimes takes time and space. It’s completely normal to feel this way.",
+  "Bonding with a newborn can have its own pace. It’s something that varies for everyone.",
+  "This is a very important issue, and I appreciate you being open to share. It’s crucial to talk about these feelings."
+];
 var responseList = [];
 
 class ActionProvider {
@@ -29,9 +41,16 @@ class ActionProvider {
   }
 
   conversation() {
-    if (index < questionList.length) {
-      const question = this.createChatBotMessage(questionList[index]);
-      this.updateChatbotState(question);
+    if (index <= questionList.length) {
+      if (index > 0) {
+        const answer = this.createChatBotMessage(answerList[index - 1]);
+        this.updateChatbotState(answer);
+      }
+      if (index < questionList.length) {
+        const question = this.createChatBotMessage(questionList[index],{delay: 2000});
+        this.updateChatbotState(question);
+      }
+
       index++;
     } else {
       index = 0;
@@ -40,7 +59,7 @@ class ActionProvider {
 
   update_msg(message) {
     responseList.push(message);
-    if (responseList.length === 10) {
+    if (responseList.length > 10) {
       this.inference(responseList);
     }
   }
@@ -55,10 +74,10 @@ class ActionProvider {
     const q1 = this.createChatBotMessage("We got your response, pls wait for few minutes, let us analyse your responses...");
     this.updateChatbotState(q1);
 
-    fetch('https://postpartum-depression-backend-api.onrender.com/api-predict', {
-      method: 'POST',
+    fetch("https://postpartum-depression-backend-api.onrender.com/api-predict", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ inputData: input })
     }).then(response => response.json())
