@@ -4,9 +4,10 @@ import "./App.css";
 import ActionProvider from "./ActionProvider";
 import MessageParser from "./MessageParser";
 import config from "./config";
-import ArticleCards from "./components/ArticleCards";
-import { articles } from "./data/Articles";
+
 import callIcon from "./assets/call_icon.png"
+import Info from "./components/Info";
+import Hero from "./components/Hero";
 
 
 function App() {
@@ -18,15 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="/postpartum.jpg" />
-        <div className="card-wrapper">
-          {React.Children.toArray(
-            articles.map(({title,img,contain,url}) => (
-              <ArticleCards title={title} img={img} contain={contain} url={url}></ArticleCards>
-            ))
-          )}
-        </div>
+      <Hero></Hero>
+      <Info></Info>
         <div className="Chatbot">
           {!isChatbotOpen && ( <div className="chatbot-toggle" onClick={toggleChatbot}>
             <img className="chatbot-icon" src={callIcon}></img>
@@ -41,7 +35,6 @@ function App() {
             </div>
           )}
         </div>
-      </header>
     </div>
   );
 }
