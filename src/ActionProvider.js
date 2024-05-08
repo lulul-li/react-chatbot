@@ -1,15 +1,15 @@
 var index = 0;
 const questionList = [
-  "1. What's your age?",
-  "2. Are you feeling sad or tearful?",
-  "3. Are you irritable towards your baby and partner?",
-  "4. Are you having trouble sleeping at night?",
-  "5. Are you experiencing problems concentrating or making decisions?",
-  "6. Are you overeating or experiencing loss of appetite?",
-  "7. Are you feeling anxious?",
-  "8. Do you have feelings of guilt?",
-  "9. Are you having problems bonding with your baby?",
-  "10. Have you ever attempted suicide?"
+  "What's your age?",
+  "Are you feeling sad or tearful?",
+  "Are you irritable towards your baby and partner?",
+  "Are you having trouble sleeping at night?",
+  "Are you experiencing problems concentrating or making decisions?",
+  "Are you overeating or experiencing loss of appetite?",
+  "Are you feeling anxious?",
+  "Do you have feelings of guilt?",
+  "Are you having problems bonding with your baby?",
+  "Have you ever attempted suicide?"
 ];
 const answerList = [
   "Thank you for sharing your age with me. Age can influence how we experience and deal with different challenges.",
