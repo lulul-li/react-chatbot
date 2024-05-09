@@ -23,6 +23,7 @@ function App() {
       <Info></Info>
         <div className="Chatbot">
           {!isChatbotOpen && ( <div className="chatbot-toggle" onClick={toggleChatbot}>
+            <p>quick self-assessment</p>
             <img className="chatbot-icon" src={callIcon}></img>
           </div>)}
           {isChatbotOpen && (

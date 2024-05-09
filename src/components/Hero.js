@@ -1,5 +1,5 @@
 import React from "react";
-import hero from "../assets/hero-removebg-preview.png";
+import hero from "../assets/hero2.png";
 import "../Styles/Hero.css";
 
 function Hero() {
