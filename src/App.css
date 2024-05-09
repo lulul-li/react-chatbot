@@ -42,14 +42,23 @@
     transform: rotate(360deg);
   }
 }
+.chatbot-container {
+  position: relative
+}
 .Chatbot {
   position: fixed;
-  bottom: 20px;
+  bottom: 50px;
   right: 20px;
 }
 
 .chatbot-icon{
   height: 80px;
+}
+.chatbot-toggle {
+  display: flex;
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+  flex-direction: column; /* 讓元素垂直堆疊 */
 }
 .chatbot-toggle p {
   background-color: #fff;
@@ -57,4 +66,12 @@
   border-radius: 24px;
   border: 1px solid #1c64f2;
   display: inline-block;
+}
+
+.close-btn{
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
 }

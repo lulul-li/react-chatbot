@@ -17,8 +17,8 @@ class MessageParser {
       this.actionProvider.start();
       this.actionProvider.conversation();
     }else{
-      this.actionProvider.update_msg(message);
       this.actionProvider.conversation();
+      this.actionProvider.update_msg(message);
     }
   }
 }

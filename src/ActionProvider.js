@@ -47,7 +47,7 @@ class ActionProvider {
         this.updateChatbotState(answer);
       }
       if (index < questionList.length) {
-        const question = this.createChatBotMessage(questionList[index],{delay: 2000});
+        const question = this.createChatBotMessage(questionList[index], { delay: 1000 });
         this.updateChatbotState(question);
       }
 
@@ -82,11 +82,13 @@ class ActionProvider {
       body: JSON.stringify({ inputData: input })
     }).then(response => response.json())
       .then(data => {
-        const prediction = this.createChatBotMessage(data["prediction"], { delay: 2000 });
-        this.updateChatbotState(prediction);
 
         if (data["prediction"] === "our predictions is: Depressed") {
-          const message = this.createChatBotMessage(data["message"]);
+          const prediction = this.createChatBotMessage("Based on your responses, it appears that you may be experiencing a higher level of postpartum depression symptoms.");
+          this.updateChatbotState(prediction);
+
+
+          const message = this.createChatBotMessage("It's important to recognize that you are not alone, and feeling this way is not your fault. Postpartum depression is a common condition, and it is treatable with the right support and resources. please check out our following suggested articles for your well being:");
           this.updateChatbotState(message);
 
           const article1 = this.createChatBotMessage(data["article1"]);
@@ -97,6 +99,10 @@ class ActionProvider {
 
           const article3 = this.createChatBotMessage(data["article3"]);
           this.updateChatbotState(article3);
+        }
+        else {
+          const prediction = this.createChatBotMessage(data["prediction"]);
+          this.updateChatbotState(prediction);
         }
       })
       .catch(error => {

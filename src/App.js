@@ -8,6 +8,7 @@ import config from "./config";
 import callIcon from "./assets/call_icon.png"
 import Info from "./components/Info";
 import Hero from "./components/Hero";
+import CloseIcon from "./assets/close.png"
 
 
 function App() {
@@ -23,11 +24,12 @@ function App() {
       <Info></Info>
         <div className="Chatbot">
           {!isChatbotOpen && ( <div className="chatbot-toggle" onClick={toggleChatbot}>
-            <p>quick self-assessment</p>
+            <p>Quick Self-Assessment</p>
             <img className="chatbot-icon" src={callIcon}></img>
           </div>)}
           {isChatbotOpen && (
-            <div className="chatbot-container" onClick={toggleChatbot}>
+            <div className="chatbot-container" >
+              <img className="close-btn" src={CloseIcon} onClick={toggleChatbot}/>
               <Chatbot
                 config={config}
                 actionProvider={ActionProvider}
