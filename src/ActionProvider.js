@@ -74,7 +74,7 @@ class ActionProvider {
     const q1 = this.createChatBotMessage("We got your response, pls wait for few minutes, let us analyse your responses...");
     this.updateChatbotState(q1);
 
-    fetch("https://postpartum-depression-backend-api.onrender.com/api-predict", {
+    fetch("https://postpartum-depression-backend-api-eyks.onrender.com/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
