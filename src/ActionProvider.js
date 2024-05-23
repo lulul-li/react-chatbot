@@ -1,7 +1,7 @@
 var index = 0;
 const questionList = [
   "What's your age?",
-  "Are you feeling sad or tearful?",
+  "Are you feeling sad or tearful? ",
   "Are you irritable towards your baby and partner?",
   "Are you having trouble sleeping at night?",
   "Are you experiencing problems concentrating or making decisions?",
@@ -16,9 +16,9 @@ const answerList = [
   "Thank you for sharing your feelings. It's good to talk about these things.",
   "It's quite common to experience friction with family members. You're not alone in this.",
   "I see. Good sleep is very important for health, isn't it?",
-  "Hmm, making decisions can sometimes be challenging.",
+  "",
   "Changes in eating habits can often reflect increased stress. This is something many people experience.",
-  "This is a common feeling",
+  "",
   "Dealing with feelings of guilt sometimes takes time and space. It’s completely normal to feel this way.",
   "Bonding with a newborn can have its own pace. It’s something that varies for everyone.",
   "This is a very important issue, and I appreciate you being open to share. It’s crucial to talk about these feelings."
@@ -59,7 +59,7 @@ class ActionProvider {
 
   update_msg(message) {
     responseList.push(message);
-    if (responseList.length > 10) {
+    if (responseList.length >= 10) {
       this.inference(responseList);
     }
   }
